@@ -6,6 +6,7 @@ public class EnemyLogic : MonoBehaviour
 {
     public List<Transform> startPoint;
     public float moveSpeed;
+    public int health;
 
     private Rigidbody rb;
     private List<Vector3> waypoints = new List<Vector3>();
