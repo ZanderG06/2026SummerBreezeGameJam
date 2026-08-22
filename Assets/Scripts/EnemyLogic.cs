@@ -14,11 +14,11 @@ public class EnemyLogic : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        foreach (Transform childTransform in this.transform) waypoints.Add(childTransform.position);
-
         int startingLocation = Random.Range(0, startPoint.Count);
 
         transform.position = startPoint[startingLocation].position;
+
+        foreach (Transform childTransform in startPoint[startingLocation].transform) waypoints.Add(childTransform.position);
 
         StartCoroutine(MoveBetweenWaypoints());
     }
