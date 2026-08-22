@@ -27,8 +27,13 @@ public class GridLogic : MonoBehaviour
                     GridSlots gridSlot = raycastHit.transform.GetComponent<GridSlots>();
                     if (gridSlot != null)
                     {
-                        GameObject towerPrefab = serviceHub.GameManager.towerTypes[0];
-                        gridSlot.SetTowerType(towerPrefab);
+                        if(serviceHub.GameManager.currentTowerTypeIndex != 3)
+                        {
+                            GameObject towerPrefab = serviceHub.GameManager.towerTypes[0];
+                            gridSlot.SetTowerType(serviceHub.GameManager.towerTypes[serviceHub.GameManager.currentTowerTypeIndex]);
+                            return;
+                        }
+                        gridSlot.DeleteTower();
                     }
                 }
             }
