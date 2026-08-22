@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int waveNumber = 1;
+    public List<GameObject> towerTypes;
 
     private ServiceHub serviceHub;
 

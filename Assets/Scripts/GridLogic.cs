@@ -3,6 +3,13 @@ using UnityEngine.InputSystem;
 
 public class GridLogic : MonoBehaviour
 {
+    private ServiceHub serviceHub;
+
+    private void Start()
+    {
+        serviceHub = ServiceHub.Instance;
+    }
+
     private void Update()
     {
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
@@ -14,6 +21,15 @@ public class GridLogic : MonoBehaviour
                 if (raycastHit.transform != null)
                 {
                     Debug.Log("Hit: " + raycastHit.transform.name);
+                }
+                if(raycastHit.transform.CompareTag("GridSlot"))
+                {
+                    GridSlots gridSlot = raycastHit.transform.GetComponent<GridSlots>();
+                    if (gridSlot != null)
+                    {
+                        GameObject towerPrefab = serviceHub.GameManager.towerTypes[0];
+                        gridSlot.SetTowerType(towerPrefab);
+                    }
                 }
             }
         }
