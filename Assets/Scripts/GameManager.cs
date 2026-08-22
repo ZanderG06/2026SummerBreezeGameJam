@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public int waveNumber = 1;
     public List<GameObject> towerTypes;
     public GameObject towerButton;
+    public GameObject deletionWarning;
 
     private ServiceHub serviceHub;
     public int currentTowerTypeIndex = 0;
@@ -25,8 +26,10 @@ public class GameManager : MonoBehaviour
         if (currentTowerTypeIndex == towerTypes.Count)
         {
             towerButtonText.text = "Remove Tower";
+            deletionWarning.SetActive(true);
             return;
         }
+        deletionWarning.SetActive(false);
         if (currentTowerTypeIndex > towerTypes.Count) currentTowerTypeIndex = 0;
         towerButtonText.text = towerTypes[currentTowerTypeIndex].name;
     }
