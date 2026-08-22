@@ -9,15 +9,12 @@ public class GameManager : MonoBehaviour
     public GameObject towerButton;
     public GameObject deletionWarning;
 
-    private ServiceHub serviceHub;
     public int currentTowerTypeIndex = 0;
     private TextMeshProUGUI towerButtonText;
 
     private void Start()
     {
-        serviceHub = ServiceHub.Instance;
         towerButtonText = towerButton.GetComponentInChildren<TextMeshProUGUI>();
-        serviceHub.WaveManager.CreateCurrentWave();
     }
 
     public void ChangeTowerType()

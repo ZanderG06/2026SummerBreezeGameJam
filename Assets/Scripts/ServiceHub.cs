@@ -6,10 +6,8 @@ public class ServiceHub : MonoBehaviour
 
     [Header("System References")]
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private WaveManager waveManager;
 
     public GameManager GameManager => gameManager;
-    public WaveManager WaveManager => waveManager;
 
     private void Awake()
     {

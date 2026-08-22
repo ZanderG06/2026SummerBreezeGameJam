@@ -1,12 +1,16 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerLogic : MonoBehaviour
 {
     public GameObject projectile;
+    private List<Transform> bulletSpawners = new List<Transform>();
 
     private void Start()
     {
+        foreach (Transform child in transform) bulletSpawners.Add(child);
+
         StartCoroutine(LaunchProjectile());
     }
 
@@ -14,8 +18,11 @@ public class TowerLogic : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(1f);
+            foreach (Transform spawner in bulletSpawners)
+            {
+                Instantiate(projectile, spawner.position, Quaternion.identity);
+                yield return new WaitForSeconds(1f);
+            }
         }
     }
 }

@@ -20,6 +20,8 @@ public class WaveManager : MonoBehaviour
         serviceHub = ServiceHub.Instance;
 
         waveButtonText = waveButton.GetComponentInChildren<TextMeshProUGUI>();
+
+        CreateCurrentWave();
     }
 
     public void CreateCurrentWave()
