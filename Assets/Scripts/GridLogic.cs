@@ -13,7 +13,7 @@ public class GridLogic : MonoBehaviour
             {
                 if (raycastHit.transform != null)
                 {
-                    Debug.Log("YO this is working!");
+                    Debug.Log("Hit: " + raycastHit.transform.name);
                 }
             }
         }
