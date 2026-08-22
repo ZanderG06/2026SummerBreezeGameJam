@@ -90,7 +90,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 1
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
@@ -170,8 +170,8 @@ Transform:
   m_GameObject: {fileID: 7849636899370823219}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000002905726}
-  m_LocalPosition: {x: 1.957, y: -0.15, z: -0.6266}
-  m_LocalScale: {x: 0.56223786, y: 0.19011262, z: 0.45428544}
+  m_LocalPosition: {x: 2.2335, y: -0.15, z: -0.5242}
+  m_LocalScale: {x: 0.61756206, y: 0.19011262, z: 0.4747737}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3662004966544661915}
