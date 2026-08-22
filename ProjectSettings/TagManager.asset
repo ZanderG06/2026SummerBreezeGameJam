@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - GridSlot
+  - Projectile
+  - EndPoint
+  - StateChange
+  - DestroyBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

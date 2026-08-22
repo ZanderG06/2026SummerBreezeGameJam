@@ -10,6 +10,7 @@ public class EnemyLogic : MonoBehaviour
 
     private Rigidbody rb;
     private List<Vector3> waypoints = new List<Vector3>();
+    private string currentRow = null;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class EnemyLogic : MonoBehaviour
         int startingLocation = Random.Range(0, startPoint.Count);
 
         transform.position = startPoint[startingLocation].position;
+        currentRow = startPoint[startingLocation].name;
 
         foreach (Transform childTransform in startPoint[startingLocation].transform) waypoints.Add(childTransform.position);
 
@@ -38,6 +40,27 @@ public class EnemyLogic : MonoBehaviour
                 }
                 yield return new WaitForSecondsRealtime(.1f);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Projectile"))
+        {
+            health--;
+            if(health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        if(other.CompareTag("EndPoint"))
+        {
+            Destroy(gameObject);
+            //PUT CODE HERE TO END GAME OR TAKE AWAY PLAYER HEALTH
+        }
+        if(other.CompareTag("StateChange"))
+        {
+            
         }
     }
 }
