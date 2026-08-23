@@ -31,21 +31,17 @@ public class EnemyLogic : MonoBehaviour
 
     IEnumerator MoveBetweenWaypoints()
     {
-        while (true)
+        for (int i = 0; i < waypoints.Count; i++)
         {
-            for (int i = 0; i < waypoints.Count; i++)
+            while (Vector3.Distance(rb.position, waypoints[i]) > .001f)
             {
-                while (Vector3.Distance(rb.position, waypoints[i]) > .001f)
-                {
-                    rb.MovePosition(Vector3.MoveTowards(rb.position, waypoints[i], moveSpeed * Time.deltaTime));
+                rb.MovePosition(Vector3.MoveTowards(rb.position, waypoints[i], moveSpeed * Time.deltaTime));
 
-                    yield return null;
-                }
-                yield return new WaitForSecondsRealtime(.1f);
+                yield return null;
             }
-            serviceHub.PlayerController.TakeDamage();
-            Destroy(gameObject);
+            yield return new WaitForSecondsRealtime(.1f);
         }
+        serviceHub.PlayerController.TakeDamage();
     }
 
     private void OnTriggerEnter(Collider other)

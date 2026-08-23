@@ -61,6 +61,10 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         serviceHub.GameManager.waveNumber++;
+        if(serviceHub.GameManager.waveNumber > waveEnemyCounts.Count)
+        {
+            serviceHub.GameManager.waveNumber = waveEnemyCounts.Count;
+        }
         waveButton.SetActive(true);
         waveButtonText.text = "Start Wave " + serviceHub.GameManager.waveNumber;
         CreateCurrentWave();
