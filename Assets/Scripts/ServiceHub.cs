@@ -6,8 +6,10 @@ public class ServiceHub : MonoBehaviour
 
     [Header("System References")]
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private PlayerController playerController;
 
     public GameManager GameManager => gameManager;
+    public PlayerController PlayerController => playerController;
 
     private void Awake()
     {

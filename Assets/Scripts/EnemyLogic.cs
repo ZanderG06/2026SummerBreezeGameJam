@@ -11,9 +11,12 @@ public class EnemyLogic : MonoBehaviour
     private Rigidbody rb;
     private List<Vector3> waypoints = new List<Vector3>();
     private string currentRow = null;
+    private ServiceHub serviceHub;
 
     private void Start()
     {
+        serviceHub = ServiceHub.Instance;
+
         rb = GetComponent<Rigidbody>();
 
         int startingLocation = Random.Range(0, startPoint.Count);
@@ -40,6 +43,8 @@ public class EnemyLogic : MonoBehaviour
                 }
                 yield return new WaitForSecondsRealtime(.1f);
             }
+            serviceHub.PlayerController.TakeDamage();
+            Destroy(gameObject);
         }
     }
 
@@ -51,12 +56,13 @@ public class EnemyLogic : MonoBehaviour
             if(health <= 0)
             {
                 Destroy(gameObject);
+                serviceHub.GameManager.currency += 25;
             }
         }
         if(other.CompareTag("EndPoint"))
         {
-            Destroy(gameObject);
-            //PUT CODE HERE TO END GAME OR TAKE AWAY PLAYER HEALTH
+            //Destroy(gameObject);
+            //serviceHub.PlayerController.TakeDamage();
         }
         if(other.CompareTag("StateChange"))
         {

@@ -54,10 +54,31 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2de76f501958b4c418c10d7c22ec1272, type: 2}
     - target: {fileID: 919132149155446097, guid: c93a7b568ae20a947ab7b28d39bad128, type: 3}
       propertyPath: m_Name
-      value: tow2_sand
+      value: SandTower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c93a7b568ae20a947ab7b28d39bad128, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3664408576538830872}
   m_SourcePrefab: {fileID: 100100000, guid: c93a7b568ae20a947ab7b28d39bad128, type: 3}
+--- !u!1 &6841856781077741817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c93a7b568ae20a947ab7b28d39bad128, type: 3}
+  m_PrefabInstance: {fileID: 5922868683112299944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3664408576538830872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841856781077741817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e8eddeda32e2045a3b366faccdb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 0}

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class TowerLogic : MonoBehaviour
 {
@@ -12,6 +11,17 @@ public class TowerLogic : MonoBehaviour
     private void Start()
     {
         foreach (Transform child in transform) bulletSpawners.Add(child);
+
+        if(layer.name == "Layer2")
+        {
+            if (name == "tow3_fih(Clone)") transform.rotation = Quaternion.Euler(-90, 0, 180);
+            else transform.rotation = Quaternion.Euler(-90, 0, 270);
+        }
+        else
+        {
+            if (name == "tow3_fih(Clone)") transform.rotation = Quaternion.Euler(-90, 0, 0);
+            else transform.rotation = Quaternion.Euler(-90, 0, 90);
+        }
 
         StartCoroutine(LaunchProjectile());
     }

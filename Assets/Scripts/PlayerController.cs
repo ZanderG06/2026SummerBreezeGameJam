@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     private float minY = -6f;
     private float maxY = 6f;
 
+    private int playerHealth = 5;
+    public GameObject gameOver;
+
     private void Update()
     {
         float scroll = Mouse.current.scroll.ReadValue().y;
@@ -15,5 +18,15 @@ public class PlayerController : MonoBehaviour
 
         if (transform.position.y < minY) transform.position = new Vector3(transform.position.x, minY, transform.position.z);
         else if (transform.position.y > maxY) transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
+    }
+
+    public void TakeDamage()
+    {
+        playerHealth--;
+
+        if (playerHealth <= 0)
+        {
+            gameOver.SetActive(true);
+        }
     }
 }
