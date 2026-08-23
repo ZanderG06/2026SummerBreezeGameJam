@@ -3,16 +3,17 @@ using UnityEngine;
 
 public class StandardBullet : MonoBehaviour
 {
-    private void Start()
+    public void StartBulletCoroutine(GameObject layer)
     {
-        StartCoroutine(MoveBullet());
+        if(layer.name != "Layer2") StartCoroutine(MoveBullet(10f));
+        else StartCoroutine(MoveBullet(-10f));
     }
 
-    IEnumerator MoveBullet()
+    IEnumerator MoveBullet(float direction)
     {
         while (true)
         {
-            transform.Translate(10f * Time.deltaTime * Vector3.left);
+            transform.Translate(direction * Time.deltaTime * Vector3.left);
             yield return null;
         }
     }
@@ -21,7 +22,7 @@ public class StandardBullet : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            if(name == "Bullet") Destroy(gameObject);
         }
         if(other.CompareTag("DestroyBullet"))
         {

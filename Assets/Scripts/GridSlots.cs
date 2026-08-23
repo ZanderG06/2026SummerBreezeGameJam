@@ -3,6 +3,7 @@ using UnityEngine;
 public class GridSlots : MonoBehaviour
 {
     public GameObject currentTower;
+    public GameObject layer;
 
     private ServiceHub serviceHub;
 
@@ -20,6 +21,13 @@ public class GridSlots : MonoBehaviour
         }
 
         currentTower = Instantiate(towerType, transform.position, Quaternion.identity);
+
+        TowerLogic towerLogic = currentTower.GetComponent<TowerLogic>();
+
+        if (towerLogic != null)
+        {
+            towerLogic.Initialize(layer);
+        }
     }
 
     public void DeleteTower()
